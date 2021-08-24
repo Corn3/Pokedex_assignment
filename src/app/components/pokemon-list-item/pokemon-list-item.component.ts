@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter, Output } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Pokemon } from 'src/app/services/models/pokemon.model';
 
 @Component({
@@ -8,5 +9,9 @@ import { Pokemon } from 'src/app/services/models/pokemon.model';
 })
 export class PokemonListItemComponent{
   @Input() pokemon: Pokemon | undefined;
+  @Output() clicked: EventEmitter<Pokemon> = new EventEmitter();
 
+  public handlePokemonClicked(): void {
+    this.clicked.emit(this.pokemon);
+}
 }

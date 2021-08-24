@@ -16,11 +16,22 @@ export class PokemonService {
     public fetchPokemons(): void {
         this.http.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
         .subscribe((data: any) => {
-            console.log(data.results)
             this._pokemons = data.results;
+            this.fetchPokemonStats();
         }, (error: HttpErrorResponse) => {
             this._error = error.message;
         })
+    }
+    public fetchPokemonStats(): void {
+        this._pokemons.forEach(element => {
+            
+            this.http.get(element.url)
+                .subscribe((data: any) => {
+                element.id = data.id;
+            }, (error: HttpErrorResponse) => {
+                this._error = error.message;
+            })           
+        });
     }
     public pokemons(): Pokemon[] {
         return this._pokemons;

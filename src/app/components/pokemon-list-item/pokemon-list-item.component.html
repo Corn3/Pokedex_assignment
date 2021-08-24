@@ -1,6 +1,5 @@
-<li class="pokemon-list-item">
+<li class="pokemon-list-item" (click)="handlePokemonClicked()">
+    <img src="../../../assets/gen1-sprites/{{pokemon?.id}}.png"  alt="">
     <h4>{{pokemon?.name}}</h4>
-    <p>{{pokemon?.url}}</p>
-    <p>image: {{pokemon?.image}}</p>
     <p>caught: {{pokemon?.isCaught}}</p>
 </li>

@@ -20,5 +20,8 @@ export class PokemonListComponent implements OnInit {
   get pokemons(): Pokemon[] {
     return this.pokemonService.pokemons();
   }
+  public handlePokemonClicked(pokemon: Pokemon):void  {
+    pokemon.isCaught = true;
+  }
 
 }

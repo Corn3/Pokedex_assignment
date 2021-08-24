@@ -1,6 +1,7 @@
 <div>
     <ul class="pokemon-catalogue">
         <app-pokemon-list-item *ngFor="let pokemon of pokemons"
+            (clicked)="handlePokemonClicked($event)"
             [pokemon]="pokemon"></app-pokemon-list-item>
     </ul>
 </div>
