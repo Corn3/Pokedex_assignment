@@ -25,7 +25,7 @@ export class PokemonListComponent implements OnInit {
   public handlePokemonClicked(pokemon: Pokemon):void  {
     if(pokemon.isCaught === false || pokemon.isCaught === undefined){
       pokemon.isCaught = true;
-      this._myPokemon.push(pokemon.name);
+      this._myPokemon.push(pokemon.name + " " + pokemon.id);
       localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }else{
       pokemon.isCaught = false;
