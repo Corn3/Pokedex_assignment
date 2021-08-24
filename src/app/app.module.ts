@@ -9,6 +9,7 @@ import { CataloguePageComponent } from './pages/catalogue/catalogue.page.compone
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
     TrainerPageComponent,
     CataloguePageComponent,
     PokemonListComponent,
-    PokemonListItemComponent
+    PokemonListItemComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
