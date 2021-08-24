@@ -18,7 +18,11 @@ export class PokemonService {
             .subscribe((data: any) => {
                 const name = pokemonName;
                 const animatedAvatar = data.sprites.versions["generation-v"]["black-white"].animated.front_default;
-                const pokemon: Pokemon = { name, animatedAvatar };
+                let types: string[] = [];
+                for(const dataType of data.types) {
+                    types.push(dataType.type.name);
+                }
+                const pokemon: Pokemon = { name, types, animatedAvatar };
                 this.caughtPokemons.push(pokemon)
             }, (error: HttpErrorResponse) => {
                 this.error = error.message;
