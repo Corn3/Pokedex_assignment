@@ -10,6 +10,8 @@ import { PokemonService } from '../../services/pokemon-service';
 })
 export class PokemonListComponent implements OnInit {
 
+  private _myPokemon: string[] = [];
+
   constructor(private readonly pokemonService: PokemonService) { 
     
   }
@@ -23,8 +25,12 @@ export class PokemonListComponent implements OnInit {
   public handlePokemonClicked(pokemon: Pokemon):void  {
     if(pokemon.isCaught === false || pokemon.isCaught === undefined){
       pokemon.isCaught = true;
+      this._myPokemon.push(pokemon.name);
+      localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }else{
       pokemon.isCaught = false;
+      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.name), 1);
+      localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }
   }
 
