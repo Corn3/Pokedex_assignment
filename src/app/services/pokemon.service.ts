@@ -26,4 +26,8 @@ export class PokemonService {
         }
     }
 
+    public getCaughtPokemons(): Pokemon[] {
+        return this.caughtPokemons;
+    }
+
 }

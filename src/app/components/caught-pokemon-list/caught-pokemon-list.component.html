@@ -1,0 +1,7 @@
+<p>{{name}}</p>
+<ul>
+    <li *ngFor="let pokemon of caughtPokemons">
+        {{pokemon.name}}
+        <img class="img-animated-pokemon" src={{pokemon.animatedAvatar}} alt={{pokemon.name}} />
+    </li>
+</ul>
