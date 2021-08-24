@@ -13,6 +13,9 @@ export class PokemonService {
     constructor(private readonly http: HttpClient) {
 
     }
+    /**
+     * Saves all first gen pokemon to a private array
+     */
     public fetchPokemons(): void {
         this.http.get('https://pokeapi.co/api/v2/pokemon/?limit=151')
         .subscribe((data: any) => {
@@ -22,6 +25,10 @@ export class PokemonService {
             this._error = error.message;
         })
     }
+    /**
+     * Loops through the private pokemon array and fetches the id. 
+     * Then adds the id and image to the Pokemon object.
+     */
     public fetchPokemonStats(): void {
         this._pokemons.forEach(element => {
             element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1);
@@ -29,6 +36,7 @@ export class PokemonService {
             this.http.get(element.url)
                 .subscribe((data: any) => {
                 element.id = data.id;
+                element.image = "../../../assets/gen1-sprites/" + data.id + ".png";
             }, (error: HttpErrorResponse) => {
                 this._error = error.message;
             })           

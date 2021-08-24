@@ -22,6 +22,11 @@ export class PokemonListComponent implements OnInit {
   get pokemons(): Pokemon[] {
     return this.pokemonService.pokemons();
   }
+  /**
+   * If isCaught === false: Sets isCaught to true and adds pokemon name and id to localStorage
+   * else: set isCaught to false and removes from localStorage
+   * @param pokemon 
+   */
   public handlePokemonClicked(pokemon: Pokemon):void  {
     if(pokemon.isCaught === false || pokemon.isCaught === undefined){
       pokemon.isCaught = true;
