@@ -21,7 +21,11 @@ export class PokemonListComponent implements OnInit {
     return this.pokemonService.pokemons();
   }
   public handlePokemonClicked(pokemon: Pokemon):void  {
-    pokemon.isCaught = true;
+    if(pokemon.isCaught === false || pokemon.isCaught === undefined){
+      pokemon.isCaught = true;
+    }else{
+      pokemon.isCaught = false;
+    }
   }
 
 }

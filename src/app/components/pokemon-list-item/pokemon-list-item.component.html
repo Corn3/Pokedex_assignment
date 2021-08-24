@@ -1,5 +1,7 @@
-<li class="pokemon-list-item" (click)="handlePokemonClicked()">
+<div class="pokemon-catalogue-item" (click)="handlePokemonClicked()">
     <img src="../../../assets/gen1-sprites/{{pokemon?.id}}.png"  alt="">
+    
+    <img *ngIf="pokemon?.isCaught" src="../../../assets/gen1-sprites/cage.png"  alt="" class="top">
+    
     <h4>{{pokemon?.name}}</h4>
-    <p>caught: {{pokemon?.isCaught}}</p>
-</li>
+</div>

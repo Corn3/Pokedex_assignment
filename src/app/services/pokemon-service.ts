@@ -24,7 +24,8 @@ export class PokemonService {
     }
     public fetchPokemonStats(): void {
         this._pokemons.forEach(element => {
-            
+            element.name = element.name.charAt(0).toUpperCase() + element.name.slice(1);
+            element.isCaught = false;
             this.http.get(element.url)
                 .subscribe((data: any) => {
                 element.id = data.id;
