@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing/landing.page.component'
 import { TrainerPageComponent } from './pages/trainer/trainer-page.component';
 import { CataloguePageComponent } from './pages/catalogue/catalogue.page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CataloguePageComponent } from './pages/catalogue/catalogue.page.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
