@@ -8,6 +8,7 @@ import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePageComponent } from './pages/catalogue/catalogue.page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CaughtPokemonListComponent } from './components/caught-pokemon-list/caught-pokemon-list.component';
+import { PartyPokemonSelectedComponent } from './components/party-pokemon-selected/party-pokemon-selected.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CaughtPokemonListComponent } from './components/caught-pokemon-list/cau
     LandingPageComponent,
     TrainerPage,
     CaughtPokemonListComponent,
+    PartyPokemonSelectedComponent,
     CataloguePageComponent
   ],
   imports: [
