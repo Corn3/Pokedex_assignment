@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Pokemon } from 'src/app/services/models/pokemon.model';
-import { PokemonService } from '../../services/pokemon-service';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { setStorage } from 'src/app/storage/storage';
+import { PokemonService } from '../../../services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,7 +11,7 @@ import { PokemonService } from '../../services/pokemon-service';
 })
 export class PokemonListComponent implements OnInit {
 
-  private _myPokemon: string[] = [];
+  private _myPokemon: number[] = [];
 
   constructor(private readonly pokemonService: PokemonService) { 
     
@@ -25,12 +26,12 @@ export class PokemonListComponent implements OnInit {
   public handlePokemonClicked(pokemon: Pokemon):void  {
     if(pokemon.isCaught === false || pokemon.isCaught === undefined){
       pokemon.isCaught = true;
-      this._myPokemon.push(pokemon.name);
-      localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
+      this._myPokemon.push(pokemon.id);
+      setStorage("pokemon", JSON.stringify(this._myPokemon))
     }else{
       pokemon.isCaught = false;
-      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.name), 1);
-      localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
+      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.id), 1);
+      setStorage("pokemon", JSON.stringify(this._myPokemon))
     }
   }
 

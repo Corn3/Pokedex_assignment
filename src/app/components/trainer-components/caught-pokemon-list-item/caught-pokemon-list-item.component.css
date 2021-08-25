@@ -1,0 +1,19 @@
+.img-animated-pokemon {
+    width: 5rem;
+    height: auto;
+}
+li {
+    list-style: none;
+}
+
+.data-container, .pokemon-container {
+    display: inline-grid;
+}
+
+.pokemon-container {
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+.caught-pokemon-list-item {
+    margin-bottom: 20px;
+}
