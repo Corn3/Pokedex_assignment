@@ -37,14 +37,15 @@ export class PokemonListComponent implements OnInit {
    * @param pokemon 
    */
   public handlePokemonClicked(pokemon: Pokemon):void  {
-    if(pokemon.isCaught === false || pokemon.isCaught === undefined){
+    let pokemons: number[] = JSON.parse(getStorage("pokemon"));
+    if(!pokemons.includes(pokemon.id)){
       pokemon.isCaught = true;
-      this._myPokemon.push(pokemon.id);
-      setStorage("pokemon", JSON.stringify(this._myPokemon))
+      pokemons.push(pokemon.id);
+      setStorage("pokemon", JSON.stringify(pokemons))
     }else{
       pokemon.isCaught = false;
-      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.id), 1);
-      setStorage("pokemon", JSON.stringify(this._myPokemon))
+      pokemons.splice(pokemons.indexOf(pokemon.id), 1);
+      setStorage("pokemon", JSON.stringify(pokemons))
     }
   }
 

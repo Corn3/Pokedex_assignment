@@ -17,3 +17,6 @@ li {
 .caught-pokemon-list-item {
     margin-bottom: 20px;
 }
+.text-bold {
+    font-weight: bold;
+}
