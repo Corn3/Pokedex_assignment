@@ -1,4 +1,8 @@
+<div>
+    <button (click)="selectedType='caughtList'">Caught Pokemons</button>
+    <button (click)="selectedType='partyList'">Party</button>
+</div>
 <main class="pokemon-container">
-    <app-caught-pokemon-list></app-caught-pokemon-list>
-    <app-pokemon-party></app-pokemon-party>
+    <app-caught-pokemon-list *ngIf="selectedType==='caughtList'"></app-caught-pokemon-list>
+    <app-pokemon-party *ngIf="selectedType!=='caughtList'"></app-pokemon-party>
 </main>
