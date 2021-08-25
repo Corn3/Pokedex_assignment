@@ -1,7 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ComponentFactoryResolver, OnInit } from "@angular/core";
 import { CaughtPokemon } from "src/app/models/caughtPokemon.model";
 import { PokemonService } from "src/app/services/pokemon.service";
-import { SelectedPartyPokemonService } from "src/app/services/selected-caught-pokemon.service";
 import { getStorage, setStorage } from "src/app/storage/storage";
 
 @Component({
@@ -14,9 +13,8 @@ export class CaughtPokemonListComponent implements OnInit {
     private caughtPokemons: CaughtPokemon[] = [];
 
     constructor(
-        private readonly pokemonSerive: PokemonService,
-        private readonly selectedPokemonService: SelectedPartyPokemonService
-        ) { }
+        private readonly pokemonSerive: PokemonService
+    ) { }
     private userName: string = "";
 
     ngOnInit() {
@@ -27,7 +25,21 @@ export class CaughtPokemonListComponent implements OnInit {
     }
 
     public handlePokemonClicked(pokemon: CaughtPokemon) {
-        this.selectedPokemonService.addPokemon(pokemon);
+        const storage: CaughtPokemon[] = JSON.parse(getStorage("party"));
+        if(storage.length === undefined) {
+            setStorage("party", JSON.stringify([pokemon]))
+        }
+        else if(storage.length <= 6) {
+            for(let i = 0; i < storage.length; i++ ){
+                if(storage[i].id === pokemon.id) {
+                    alert("Pokemon already in party!");
+                    return;
+                }
+            }
+            setStorage("party", JSON.stringify([...storage, pokemon]));
+        } else {
+            alert("Party at max size (6)")
+        }
     }
 
     get pokemons(): CaughtPokemon[] {
