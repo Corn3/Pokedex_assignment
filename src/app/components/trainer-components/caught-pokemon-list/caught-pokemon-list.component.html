@@ -1,0 +1,4 @@
+<p>{{name}}</p>
+<ul>
+    <app-caught-pokemon-list-item *ngFor="let pokemon of pokemons" (clicked)="handlePokemonClicked($event)" [pokemon]="pokemon"></app-caught-pokemon-list-item>
+</ul>

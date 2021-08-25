@@ -1,5 +1,11 @@
 export interface Pokemon {
-    name: string,
-    types: string[],
-    animatedAvatar: string
+    name: string;
+    id: number;
+    url: string;
+    isCaught: boolean,
+    image: string,
+    stats: PokemonStats;
+}
+export interface PokemonStats {
+
 }

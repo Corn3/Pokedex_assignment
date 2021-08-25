@@ -1,0 +1,13 @@
+<li class="caught-pokemon-list-item" (click)="onPokemonClicked()">
+    <div class="pokemon-container">
+        <div class="grid-item">
+            <img class="img-animated-pokemon" src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}} />
+        </div>
+        <div class="grid-item">
+            <div class="data-container">
+                {{pokemon?.name}}
+                <app-caught-pokemon-type *ngFor="let type of pokemon?.types" [type]="type"></app-caught-pokemon-type>
+            </div>
+        </div>
+    </div>
+</li>
