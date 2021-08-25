@@ -1,3 +1,8 @@
+div {
+    text-align: center;
+    border-radius: 10px;
+    width: 8rem;
+}
 .type-text-color {
     color: white;
 }
