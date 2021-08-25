@@ -12,9 +12,9 @@ export class SelectedPartyPokemonService {
         if (this.caughtPokemons.length < this.maxLength) {
             (!this.caughtPokemons.includes(pokemon))
                 ? this.caughtPokemons.push(pokemon)
-                : alert("That pokemon is already part of the party!");
+                : alert("That pokemon is already part of the party.");
         } else {
-            alert("You can have a maximum of 6 party pokemons.")
+            alert("You can have a maximum of 6 pokemons in your party.")
         }
     }
 
