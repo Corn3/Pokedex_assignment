@@ -9,8 +9,10 @@ export class SelectedPartyPokemonService {
     private maxLength: number = 6;
 
     public addPokemon(pokemon: CaughtPokemon): void {
-        if(this.caughtPokemons.length < this.maxLength) {
-            this.caughtPokemons.push(pokemon);
+        if (this.caughtPokemons.length < this.maxLength) {
+            (!this.caughtPokemons.includes(pokemon))
+                ? this.caughtPokemons.push(pokemon)
+                : alert("That pokemon is already part of the party!");
         } else {
             alert("You can have a maximum of 6 party pokemons.")
         }
