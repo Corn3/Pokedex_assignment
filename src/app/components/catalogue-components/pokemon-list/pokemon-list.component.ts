@@ -14,11 +14,11 @@ export class PokemonListComponent implements OnInit {
   private _myPokemon: number[] = [];
 
   constructor(private readonly pokemonService: PokemonService) { 
-    
   }
 
   ngOnInit(): void {
     this.pokemonService.fetchPokemons();
+
     if(localStorage.getItem("pokemon") === null) {
       localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }else {

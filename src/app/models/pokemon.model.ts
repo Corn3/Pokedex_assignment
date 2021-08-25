@@ -4,8 +4,4 @@ export interface Pokemon {
     url: string;
     isCaught: boolean,
     image: string,
-    stats: PokemonStats;
-}
-export interface PokemonStats {
-
 }

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Pokemon } from "../models/pokemon.model";
 import { CaughtPokemon } from "../models/caughtPokemon.model";
+import { getStorage } from "../storage/storage";
 
 @Injectable({
     providedIn: 'root'
@@ -32,14 +33,20 @@ export class PokemonService {
     /**
      * Loops through the private pokemon array and fetches the id. 
      * Then adds the id and image to the Pokemon object.
-     */
+     * If the pokemon exists in local storage, isCaught is set to true.
+    */
     public fetchPokemonStats(): void {
+        let temp = JSON.parse(getStorage("pokemon"))
         this._pokemons.forEach(element => {
             element.name = this.capitalizeFirstLetter(element.name);
-            element.isCaught = false;
             this.http.get(element.url)
-                .subscribe((data: any) => {
+            .subscribe((data: any) => {
                 element.id = data.id;
+                if(temp.includes(element.id)){
+                    element.isCaught = true;
+                }else {
+                    element.isCaught = false;
+                }
                 element.image = "../../../assets/gen1-sprites/" + data.id + ".png";
             }, (error: HttpErrorResponse) => {
                 this._error = error.message;
