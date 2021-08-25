@@ -18,7 +18,17 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.fetchPokemons();
-  }
+    if(localStorage.getItem("pokemon") === null) {
+      localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
+    }else {
+      let temp = (localStorage.getItem("pokemon"))?.split(",");
+      temp?.forEach((element: string) => {
+          let tempPokemon = element.split(" "); 
+          let pokemonName = tempPokemon[0].replace(/[^a-zA-Z/]/g, "");
+          this._myPokemon.push(this.pokemonService.getPokemon(pokemonName).name + " " + this.pokemonService.getPokemon(pokemonName).id);
+      });
+    }
+}
   get pokemons(): Pokemon[] {
     return this.pokemonService.pokemons();
   }
@@ -34,7 +44,7 @@ export class PokemonListComponent implements OnInit {
       localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }else{
       pokemon.isCaught = false;
-      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.name), 1);
+      this._myPokemon.splice(this._myPokemon.indexOf(pokemon.name +" " + pokemon.id), 1)
       localStorage.setItem("pokemon", JSON.stringify(this._myPokemon))
     }
   }

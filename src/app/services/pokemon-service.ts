@@ -42,6 +42,15 @@ export class PokemonService {
             })           
         });
     }
+    public getPokemon (pokemon: string): any {
+        let ret = null;
+        this._pokemons.forEach((element: Pokemon) => {
+            if(element.name === pokemon) {
+                ret = element;
+            }
+        })
+        return ret;
+    }
     public pokemons(): Pokemon[] {
         return this._pokemons;
     }
