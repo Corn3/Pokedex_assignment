@@ -1,4 +1,11 @@
-<h1>Party</h1>
-<ul *ngFor="let pokemon of pokemons">
-    <img src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}}>
-</ul>
+<div class="pokedex">
+    <h2>Party</h2>
+    <diV class="grid-container">
+        <ul *ngFor="let pokemon of pokemons">
+            <div class="grid-item">
+                <img class="pokemon-img" src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}}
+                    (click)="handlePartyPokemonClicked(pokemon)" />
+            </div>
+        </ul>
+    </diV>
+</div>

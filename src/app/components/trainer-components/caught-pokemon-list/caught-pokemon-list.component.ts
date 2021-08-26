@@ -26,19 +26,27 @@ export class CaughtPokemonListComponent implements OnInit {
 
     public handlePokemonClicked(pokemon: CaughtPokemon) {
         const storage: CaughtPokemon[] = JSON.parse(getStorage("party"));
-        if(storage.length === undefined) {
-            setStorage("party", JSON.stringify([pokemon]))
+        if (storage.length === undefined) {
+            setStorage("party", JSON.stringify([pokemon]));
+            return;
         }
-        else if(storage.length <= 6) {
-            for(let i = 0; i < storage.length; i++ ){
-                if(storage[i].id === pokemon.id) {
-                    alert("Pokemon already in party!");
-                    return;
-                }
+        for (let i = 0; i < storage.length; i++) {
+            if (storage[i].id === 0) {
+                storage[i] = pokemon;
+                storage.splice(storage.length - 1, 1);
+                setStorage("party", JSON.stringify(storage));
+                return;
             }
-            setStorage("party", JSON.stringify([...storage, pokemon]));
+            else if (storage[i].id === pokemon.id) {
+                alert("Pokemon already in party!");
+                return;
+            }
+        }
+        if (storage.length <= 6) {
+            alert("You already have 6 pokemons in party");
+            return;
         } else {
-            alert("Party at max size (6)")
+            setStorage("party", JSON.stringify([...storage, pokemon]));
         }
     }
 
