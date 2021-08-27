@@ -1,7 +1,6 @@
 .pokemon-img {
-    width: 8vw;
-    min-width: 5rem;
-    max-width: 10rem;
+    width: 5rem;
+    max-width: 100%;
     height: auto;
 }
 .grid-container {
