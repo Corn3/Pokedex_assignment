@@ -1,16 +1,14 @@
-<div class="grid-item">
-    <li class="caught-pokemon-list-item" (click)="onPokemonClicked()">
-        <div class="pokemon-container">
-            <div class="grid-item">
-                <img class="img-animated-pokemon" src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}} />
-            </div>
-            <div class="grid-item">
-                <div class="data-container">
-                    <div class="text-bold text-center name-text">{{pokemon?.name}}</div>
-                    <app-caught-pokemon-type *ngFor="let type of pokemon?.types" [type]="type">
-                    </app-caught-pokemon-type>
-                </div>
+<li class="caught-pokemon-list-item" (click)="onPokemonClicked()">
+    <div class="pokemon-container">
+        <div class="grid-item">
+            <img class="img-animated-pokemon" src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}} />
+        </div>
+        <div class="grid-item">
+            <div class="data-container">
+                <div class="text-bold text-center name-text">{{pokemon?.name}}</div>
+                <app-caught-pokemon-type *ngFor="let type of pokemon?.types" [type]="type">
+                </app-caught-pokemon-type>
             </div>
         </div>
-    </li>
-</div>
+    </div>
+</li>

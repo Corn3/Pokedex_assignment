@@ -1,15 +1,14 @@
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-columns: repeat(auto-fit, 250px);
     justify-content: center;
-    gap: 10px;
-    background-color: rgb(211, 211, 211);
+    gap: 20px;
 }
 .grid-item {
     height: 7rem;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px rgb(172, 172, 172);
 }
 ul {
-    width: 100%;
     padding: 0;
 }
-
