@@ -1,7 +1,7 @@
 <h4 class="trainer-name">Trainer name: {{name}}</h4>
 <div class="type-container">
-    <a class="selected-type" (click)="selectedType='caughtList'" [ngClass]="(selectedType==='caughtList') ? 'selected' : ''">Caught Pokemons</a>
-    <a class="selected-type" (click)="selectedType='partyList'" [ngClass]="(selectedType!=='caughtList') ? 'selected' : ''">Party</a>
+    <a class="selected-type" (click)="selectedType='caughtList'" [ngClass]="(selectedType==='caughtList') ? 'selected' : 'not-selected'">Caught Pokemons</a>
+    <a class="selected-type" (click)="selectedType='partyList'" [ngClass]="(selectedType!=='caughtList') ? 'selected' : 'not-selected'">Party</a>
 </div>
 <main>
     <app-caught-pokemon-list *ngIf="selectedType==='caughtList'"></app-caught-pokemon-list>

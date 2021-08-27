@@ -3,10 +3,8 @@ main {
 }
 a.selected-type {
     display: inline-block;
-    color: inherit;
     margin: 0 20px;
     text-decoration: none;
-    border-bottom: 3px solid black;
     padding: 0 100px;
 }
 .type-container {
@@ -24,10 +22,18 @@ a.selected-type {
 }
 
 .selected-type:hover {
+    color: black;
+    border-bottom: 3px solid black;
     animation: grow .8s forwards;
     cursor: pointer;
 }
 
 .selected {
-    background-color: antiquewhite;
+    color: black;
+    border-bottom: 3px solid black;
+}
+
+.not-selected {
+    color: gray;
+    border-bottom: 3px solid gray;
 }
