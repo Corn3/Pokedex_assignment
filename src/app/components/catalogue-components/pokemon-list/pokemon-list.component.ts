@@ -41,6 +41,7 @@ export class PokemonListComponent implements OnInit {
     if(!pokemons.includes(pokemon.id)){
       pokemon.isCaught = true;
       pokemons.push(pokemon.id);
+      pokemons.sort((a, b) => a - b);
       setStorage("pokemon", JSON.stringify(pokemons))
     }else{
       pokemon.isCaught = false;

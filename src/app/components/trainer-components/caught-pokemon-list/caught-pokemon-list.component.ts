@@ -29,24 +29,22 @@ export class CaughtPokemonListComponent implements OnInit {
         if (storage.length === undefined) {
             setStorage("party", JSON.stringify([pokemon]));
             return;
+        } else if (storage[5].id !== 0) {
+            alert("You already Have 6 pokemons in party.");
+            return;
         }
-        for (let i = 0; i < storage.length; i++) {
-            if (storage[i].id === 0) {
-                storage[i] = pokemon;
-                storage.splice(storage.length - 1, 1);
-                setStorage("party", JSON.stringify(storage));
-                return;
-            }
-            else if (storage[i].id === pokemon.id) {
+        for (let i = 0; i < 6; i++) {
+            if (storage[i].id === pokemon.id) {
                 alert("Pokemon already in party!");
                 return;
             }
-        }
-        if (storage.length <= 6) {
-            alert("You already have 6 pokemons in party");
-            return;
-        } else {
-            setStorage("party", JSON.stringify([...storage, pokemon]));
+            else if(storage[i].id === 0) {
+                storage[i] = pokemon;
+                storage.splice(storage.length, 1);
+                setStorage("party", JSON.stringify(storage));
+                return;
+            }
+            
         }
     }
 

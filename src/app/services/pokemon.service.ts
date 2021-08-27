@@ -12,11 +12,9 @@ export class PokemonService {
     private _error: string = "";
     private caughtPokemons: CaughtPokemon[] = [];
     private DEFAULT_URL: string = "https://pokeapi.co/api/v2/pokemon/";
-    private DEFAULT_IMG_PATH: string = `src/assets/gen1-sprites/`
 
-    constructor(private readonly http: HttpClient) {
+    constructor(private readonly http: HttpClient) {}
 
-    }
     /**
      * Saves all first gen pokemon to a private array
      */
@@ -29,6 +27,7 @@ export class PokemonService {
             this._error = error.message;
         })
     }
+
     /**
      * Loops through the private pokemon array and fetches the id. 
      * Then adds the id and image to the Pokemon object.
@@ -46,6 +45,7 @@ export class PokemonService {
             })           
         });
     }
+
     public getPokemon (pokemon: string): any {
         let ret = null;
         this._pokemons.forEach((element: Pokemon) => {
@@ -63,12 +63,11 @@ export class PokemonService {
     public fetchCaughtPokemons(pokemons: number[]): void {
         this.caughtPokemons = [];
         if (pokemons.length > 0) {
-
-            for (const pokemonId of pokemons) {
-                this.http.get<Pokemon[]>(this.DEFAULT_URL + pokemonId)
-                    .subscribe((data: any) => {
-                        const pokemon: CaughtPokemon = this.getCaughtPokemon(data, pokemonId);
-                        this.caughtPokemons.push(pokemon)
+            for (let i = 0; i < pokemons.length; i++) {
+                this.http.get<CaughtPokemon[]>(this.DEFAULT_URL + pokemons[i])
+                    .subscribe((data) => {
+                        const pokemon: CaughtPokemon = this.getCaughtPokemon(data, pokemons[i]);
+                        this.caughtPokemons.splice(i, 0, pokemon);
                     }, (error: HttpErrorResponse) => {
                         this._error = error.message;
                     });
@@ -76,14 +75,14 @@ export class PokemonService {
         }
     }
 
-    getCaughtPokemon(data: any, id: number) {
+    private getCaughtPokemon(data: any, id: number) {
         let name: string = this.capitalizeFirstLetter(data.forms[0].name);
         const animatedAvatar = data.sprites.versions["generation-v"]["black-white"].animated.front_default;
         const types = this.getTypes(data);
         return { name, id, types, animatedAvatar }
     }
 
-    getTypes(pokemon: any) {
+    private getTypes(pokemon: any) {
         let types: string[] = [];
         for (const dataType of pokemon.types) {
             types.push(this.capitalizeFirstLetter(dataType.type.name));
@@ -92,6 +91,7 @@ export class PokemonService {
     }
 
     public getCaughtPokemons(): CaughtPokemon[] {
+        this.caughtPokemons.sort((a, b) => a.id - b.id);
         return this.caughtPokemons;
     }
 

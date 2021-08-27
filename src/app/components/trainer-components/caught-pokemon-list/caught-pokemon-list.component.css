@@ -1,0 +1,15 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(211, 211, 211);
+}
+.grid-item {
+    height: 7rem;
+}
+ul {
+    width: 100%;
+    padding: 0;
+}
+

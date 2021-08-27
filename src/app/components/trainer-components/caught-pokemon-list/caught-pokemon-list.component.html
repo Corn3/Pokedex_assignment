@@ -1,4 +1,7 @@
 <p>{{name}}</p>
 <ul>
-    <app-caught-pokemon-list-item *ngFor="let pokemon of pokemons" (clicked)="handlePokemonClicked($event)" [pokemon]="pokemon"></app-caught-pokemon-list-item>
+    <div class="grid-container">
+        <app-caught-pokemon-list-item class="grid-item" *ngFor="let pokemon of pokemons"
+            (clicked)="handlePokemonClicked($event)" [pokemon]="pokemon"></app-caught-pokemon-list-item>
+    </div>
 </ul>
