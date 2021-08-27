@@ -37,3 +37,9 @@ a.selected-type {
     color: gray;
     border-bottom: 3px solid gray;
 }
+
+.trainer-name {
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+}
