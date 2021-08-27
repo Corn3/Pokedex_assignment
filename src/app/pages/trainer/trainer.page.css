@@ -1,0 +1,39 @@
+main {
+    text-align: center;
+}
+a.selected-type {
+    display: inline-block;
+    margin: 0 20px;
+    text-decoration: none;
+    padding: 0 100px;
+}
+.type-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.selected-type:hover {
+    color: black;
+    border-bottom: 3px solid black;
+    animation: grow .8s forwards;
+    cursor: pointer;
+}
+
+.selected {
+    color: black;
+    border-bottom: 3px solid black;
+}
+
+.not-selected {
+    color: gray;
+    border-bottom: 3px solid gray;
+}

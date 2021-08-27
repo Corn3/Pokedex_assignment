@@ -12,10 +12,12 @@ export class TrainerPage implements OnInit {
     constructor(private router: Router) {}
 
     private type: string = "caughtList";
+    private trainerName: string = "";
 
     ngOnInit() {
         setStorage("trainer", "Test") // Remove later
-        if(getStorage("trainer") === "{}") {
+        this.trainerName = getStorage("trainer");
+        if(this.trainerName === "{}") {
             this.router.navigate(["landing"]);
         }
     }
@@ -26,5 +28,9 @@ export class TrainerPage implements OnInit {
 
     public set selectedType(value: string) {
         this.type = value;
+    }
+
+    public get name() {
+        return this.trainerName;
     }
 }

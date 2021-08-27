@@ -6,7 +6,8 @@
         <div class="grid-item">
             <div class="data-container">
                 <div class="text-bold text-center name-text">{{pokemon?.name}}</div>
-                <app-caught-pokemon-type *ngFor="let type of pokemon?.types" [type]="type"></app-caught-pokemon-type>
+                <app-caught-pokemon-type *ngFor="let type of pokemon?.types" [type]="type">
+                </app-caught-pokemon-type>
             </div>
         </div>
     </div>
