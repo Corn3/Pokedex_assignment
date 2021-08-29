@@ -1,6 +1,9 @@
 <li class="caught-pokemon-list-item" (click)="onPokemonClicked()">
     <div class="pokemon-container">
         <div class="grid-item">
+            <span class="in-party-container" [ngClass]="isInParty() ? 'visible' : 'hidden'">
+                <img class="in-party-img" src="../../../assets/pokeball-sprites/pokeball.png" />
+            </span>
             <img class="img-animated-pokemon" src={{pokemon?.animatedAvatar}} alt={{pokemon?.name}} />
         </div>
         <div class="grid-item">

@@ -21,3 +21,17 @@ li {
 .text-bold {
     font-weight: bold;
 }
+
+.in-party-img {
+    width: 20px;
+    position: absolute;
+    transform: translate(-60%, -40%);
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}

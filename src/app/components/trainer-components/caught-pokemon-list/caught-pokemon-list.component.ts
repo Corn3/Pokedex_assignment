@@ -17,6 +17,10 @@ export class CaughtPokemonListComponent implements OnInit {
     ) { }
     private userName: string = "";
 
+    /**
+     * Fetches data from external API with data from localstorage, and sets the
+     * local variable to it.
+     */
     ngOnInit() {
         this.userName = getStorage("trainer");
         const pokemons: number[] = JSON.parse(getStorage("pokemon"));
@@ -24,6 +28,14 @@ export class CaughtPokemonListComponent implements OnInit {
         this.caughtPokemons = this.pokemonSerive.getCaughtPokemons();
     }
 
+    /**
+     * Adds the clicked pokemon to the pokemon party, based on if there is any room,
+     * or if the pokemon is already in the party.
+     * 
+     * @param pokemon The pokemon to be added to the party on click.
+     * @returns This function always returns when a pokemon has been successfully
+     * added or if it fails at some point.
+     */
     public handlePokemonClicked(pokemon: CaughtPokemon) {
         const storage: CaughtPokemon[] = JSON.parse(getStorage("party"));
         if (storage.length === undefined) {

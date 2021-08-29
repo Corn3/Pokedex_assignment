@@ -67,6 +67,13 @@ export class PokemonService {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }
 
+    /**
+     * Retrieves pokemon from an external API using the parameter of ids.
+     * This method will always return when it hass successfully fetched the pokemons,
+     * or throw an error if there were any problems with the API.
+     * 
+     * @param pokemons The pokemons ids used to be fetch from external API.
+     */
     public fetchCaughtPokemons(pokemons: number[]): void {
         this.caughtPokemons = [];
         if (pokemons.length > 0) {
@@ -82,13 +89,29 @@ export class PokemonService {
         }
     }
 
-    private getCaughtPokemon(data: any, id: number) {
+    /**
+     * Uses the data from the external API to cherry pick data needed.
+     * This method always returns a Pokemon.
+     * 
+     * @param data The pokemon data retrieved from external API.
+     * @param id The ID of the pokemon retrieved.
+     * @returns A pokemon with specific data.
+     */
+    private getCaughtPokemon(data: any, id: number): CaughtPokemon {
         let name: string = this.capitalizeFirstLetter(data.forms[0].name);
         const animatedAvatar = data.sprites.versions["generation-v"]["black-white"].animated.front_default;
         const types = this.getTypes(data);
         return { name, id, types, animatedAvatar }
     }
 
+    /**
+     * Retrieves a set of types bound to the pokemon. The argument used is for
+     * the pokemon data from which the types will be retrieved. This method always 
+     * returns a set of types.
+     * 
+     * @param pokemon Pokemon data used to fetch types which are bound to the pokemon.
+     * @returns A list of types that are bound to the pokemon.
+     */
     private getTypes(pokemon: any) {
         let types: string[] = [];
         for (const dataType of pokemon.types) {

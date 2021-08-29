@@ -19,6 +19,10 @@ export class PartyPokemonSelectedComponent implements OnInit {
         this.pokeball
     ];
 
+    /**
+     * initializes the party directly from local storage, if there ain't 6 pokemon,
+     * then any pokeball is added to the empty slots.
+     */
     ngOnInit() {
         let partyPokemon = JSON.parse(getStorage("party"));
         if (partyPokemon.length === undefined) {
@@ -37,6 +41,13 @@ export class PartyPokemonSelectedComponent implements OnInit {
         return JSON.parse(getStorage("party"));
     }
 
+    /**
+     * Removes a pokemon that is clicked and replaces it with a pokeball,
+     * freeing up that slot for a future pokemon. This method will always remove 
+     * the clicked pokemon from local storage.
+     * 
+     * @param pokemon The pokemon that was clicked and that should be removed.
+     */
     public handlePartyPokemonClicked(pokemon: CaughtPokemon) {
         let partyPokemons: CaughtPokemon[] = JSON.parse(getStorage("party"));
         if (pokemon.id === 0) {

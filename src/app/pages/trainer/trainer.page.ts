@@ -14,8 +14,11 @@ export class TrainerPage implements OnInit {
     private type: string = "caughtList";
     private trainerName: string = "";
 
+/**
+ * Checks if a trainer name exists, if it does, set the name to it.
+ * Otherwise returns to the landing page (login page).
+ */
     ngOnInit() {
-        setStorage("trainer", "Test") // Remove later
         this.trainerName = getStorage("trainer");
         if(this.trainerName === "{}") {
             this.router.navigate(["landing"]);
