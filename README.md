@@ -5,13 +5,13 @@ The 7th assignment for Experis Academy, to build a Pokémon Trainer web app usin
 
 ## Layout
 
-LandingPage:
+LandingPage:  
     The root page of the application, used to log in a user and save the username in local storage.
 
-TrainerPage: 
+TrainerPage:   
     Here you can view all you caught Pokemon, and also add them to your "party".
 
-CataloguePage:
+CataloguePage:  
     Gives an overview of all the first generation Pokemon. To catch one all you need to do is click on it and it will be added on the TrainerPage.
     
 ## Development server
