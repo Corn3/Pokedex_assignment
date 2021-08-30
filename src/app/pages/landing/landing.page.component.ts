@@ -16,7 +16,9 @@ export class LandingPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.pokemonService.isLoggedIn())
+    if(this.pokemonService.isLoggedIn()) {
+      this.router.navigate(["catalogue"]);
+    }
   }
 
   public onSubmit(form: NgForm) {

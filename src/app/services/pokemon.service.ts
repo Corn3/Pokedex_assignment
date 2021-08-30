@@ -129,7 +129,7 @@ export class PokemonService {
         return this._pokemons;
     }
     public isLoggedIn(): boolean {
-        if(getStorage('username') === '{}') {
+        if(getStorage('trainer') === '{}') {
             console.log(false)
             return false;
         }
