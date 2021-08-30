@@ -15,7 +15,6 @@ export class TrainerPage implements OnInit {
     private trainerName: string = "";
 
     ngOnInit() {
-        setStorage("trainer", "Test") // Remove later
         this.trainerName = getStorage("trainer");
         if(this.trainerName === "{}") {
             this.router.navigate(["landing"]);
