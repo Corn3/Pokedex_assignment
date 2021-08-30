@@ -20,8 +20,8 @@ export class LandingPageComponent implements OnInit {
   }
 
   public onSubmit(form: NgForm) {
-    setStorage('username', form.value.username);
-    this.router.navigate(["/trainer"])
+    setStorage('trainer', form.value.username);
+    this.router.navigate(["catalogue"])
   }
 
 }
