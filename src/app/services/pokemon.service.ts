@@ -128,6 +128,14 @@ export class PokemonService {
     public pokemons(): Pokemon[] {
         return this._pokemons;
     }
+    public isLoggedIn(): boolean {
+        if(getStorage('username') === '{}') {
+            console.log(false)
+            return false;
+        }
+        console.log('true')
+        return true;
+    }
     public error(): string {
         return this._error;
     }

@@ -1,0 +1,16 @@
+.landingComponent {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.welcomeText {
+    padding: 10px;
+    margin-top: 10vh;
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

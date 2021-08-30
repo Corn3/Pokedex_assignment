@@ -1,1 +1,18 @@
-<p>landing.page works!</p>
+<div class="landingComponent">
+
+    <h2 class="welcomeText">Welcome to your PokeDex!</h2>
+    
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="loginForm">
+        <input type="text"
+                name="username"
+                ngModel
+                required
+                placeholder="username"/>
+        <button class="btn btn-primary"
+                type="submit" 
+                [disabled]="loginForm.form.invalid"
+        >
+        Login
+        </button>
+    </form>
+</div>

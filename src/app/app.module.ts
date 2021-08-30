@@ -14,6 +14,7 @@ import { PokemonListItemComponent } from './components/catalogue-components/poke
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CaughtPokemonListItemComponent } from './components/trainer-components/caught-pokemon-list-item/caught-pokemon-list-item.component';
 import { CaughtPokemonTypeComponent } from './components/trainer-components/caught-pokemon-type-item/caught-pokemon-type-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { CaughtPokemonTypeComponent } from './components/trainer-components/caug
     CataloguePageComponent,
     PokemonListComponent,
     PokemonListItemComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
