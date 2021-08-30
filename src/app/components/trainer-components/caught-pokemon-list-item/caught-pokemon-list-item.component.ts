@@ -17,9 +17,11 @@ export class CaughtPokemonListItemComponent {
 
     public isInParty(): boolean {
         const party: CaughtPokemon[] = (JSON.parse(getStorage("party")));
-        for(const partyPokemon of party) {
-            if(partyPokemon.id === this.pokemon?.id)
-                return true;
+        if (party.length !== undefined) {
+            for (const partyPokemon of party) {
+                if (partyPokemon.id === this.pokemon?.id)
+                    return true;
+            }
         }
         return false;
     }
